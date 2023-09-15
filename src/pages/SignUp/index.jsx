@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Container, Form, Background } from "./styles";
 import { FiUser, FiMail, FiLock } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -6,6 +8,18 @@ import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 
 export function SignUp() {
+    const [name, setName] = useState("") 
+    const [email, setEmail] = useState("") 
+    const [password, setPassword] = useState("") 
+
+    function handleSingleUp() {
+        if(!name || !email || !password) {
+            return alert("Preencha todos os campos!")
+        }
+
+        
+    }
+
     return (
         <Container>
             <Background />
@@ -20,21 +34,24 @@ export function SignUp() {
                     placeholder="Nome"
                     type="text"
                     icon={FiUser}
+                    onChange={event => setName(event.target.value)}
                 />
                 
                 <Input 
                     placeholder="E-mail"
                     type="text"
                     icon={FiMail}
+                    onChange={event => setEmail(event.target.value)}
                 />
 
                 <Input 
                     placeholder="Senha"
                     type="password"
                     icon={FiLock}
+                    onChange={event => setPassword(event.target.value)}
                 />
 
-                <Button title="Cadastrar" />
+                <Button title="Cadastrar" onClick={handleSingleUp} />
 
                 <Link to="/">
                     Voltar para o login
