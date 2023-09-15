@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Container, Form, Background } from "./styles";
 import { FiUser, FiMail, FiLock } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
@@ -12,6 +12,7 @@ export function SignUp() {
     const [name, setName] = useState("") 
     const [email, setEmail] = useState("") 
     const [password, setPassword] = useState("") 
+    const navigate = useNavigate()
 
     function handleSingleUp() {
         if(!name || !email || !password) {
@@ -21,6 +22,7 @@ export function SignUp() {
         api.post("/users", { name, email, password })
         .then(() => {
             alert("Usuário cadastrado com sucesso!")
+            navigate("/")
         })
         .catch(error => {
             if(error.response) {
@@ -29,8 +31,6 @@ export function SignUp() {
                 alert("Não foi possível cadastrar o usuário")
             }
         })
-
-
     }
 
     return (
