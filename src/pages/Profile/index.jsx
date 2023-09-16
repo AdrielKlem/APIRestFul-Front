@@ -51,14 +51,14 @@ export function Profile() {
     return (
         <Container>
             <header>
-                <buntton 
+                <button 
                 type="button"
                 onClick={handleBack}
                 >
                     <FiArrowLeft 
                     size={24}
                     />
-                </buntton>
+                </button>
             </header>
 
             <Form>
