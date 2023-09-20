@@ -14,7 +14,7 @@ export function SignUp() {
     const [password, setPassword] = useState("") 
     const navigate = useNavigate()
 
-    function handleSingleUp() {
+    function handleSignUp() {
         if(!name || !email || !password) {
             return alert("Preencha todos os campos!")
         }
@@ -64,7 +64,7 @@ export function SignUp() {
                     onChange={event => setPassword(event.target.value)}
                 />
 
-                <Button title="Cadastrar" onClick={handleSingleUp} />
+                <Button title="Cadastrar" onClick={handleSignUp} />
 
                 <Link to="/">
                     Voltar para o login
