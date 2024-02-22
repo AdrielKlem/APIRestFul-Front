@@ -11,6 +11,10 @@ export const Container = styled.div`
     margin-bottom: 8px;
     border-radius: 10px;
 
+    > label {
+        font-size: clamp(0.8rem, 2vw + 0.6rem, 1.6rem);
+    }
+
     > input {
         height: 56px;
         width: 100%;
@@ -24,7 +28,6 @@ export const Container = styled.div`
         &:placeholder {
             color: ${({ theme }) => theme.COLORS.GRAY_300};
         }
-
     }
 
     > svg {
